@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard'
 import { ProtectedRoute } from './components/ProtectedRoute'
 import Register from './pages/Register'
 import Login from './pages/Login'
+import Profile from './pages/Profile'
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -35,6 +36,16 @@ const App = () => (
 								</ProtectedRoute>
 							}
 						/>
+
+						<Route
+							path='/profile'
+							element={
+								<ProtectedRoute>
+									<Profile />
+								</ProtectedRoute>
+							}
+						/>
+						
 					</Routes>
 				</AuthProvider>
 			</BrowserRouter>
