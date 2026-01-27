@@ -1,0 +1,270 @@
+@import "tailwindcss";
+
+/* RBAS Design System - Enterprise Professional Theme */
+
+@theme {
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+}
+
+
+@layer base {
+  :root {
+    /* Core backgrounds */
+    --background: 220 20% 98%;
+    --foreground: 222 47% 11%;
+
+    /* Cards and surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary - Professional Blue */
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Subtle gray-blue */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    /* Muted surfaces */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    /* Accent - Light blue tint */
+    --accent: 217 91% 97%;
+    --accent-foreground: 221 83% 53%;
+
+    /* Destructive - Error red */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.5rem;
+
+    /* Status colors */
+    --status-pending: 45 93% 47%;
+    --status-pending-foreground: 45 93% 17%;
+    --status-approved: 142 71% 45%;
+    --status-approved-foreground: 0 0% 100%;
+    --status-rejected: 0 84% 60%;
+    --status-rejected-foreground: 0 0% 100%;
+    --status-review: 217 91% 60%;
+    --status-review-foreground: 0 0% 100%;
+    --status-cancelled: 220 9% 46%;
+    --status-cancelled-foreground: 0 0% 100%;
+
+    /* Role colors */
+    --role-admin: 271 81% 56%;
+    --role-manager: 217 91% 60%;
+    --role-user: 142 71% 45%;
+
+    /* Request type colors */
+    --type-leave: 142 71% 45%;
+    --type-expense: 45 93% 47%;
+    --type-discount: 271 81% 56%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(217 91% 60%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(271 81% 56%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 14% 98%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(220 13% 91% / 0.5);
+    --shadow-md: 0 4px 6px -1px hsl(220 13% 91% / 0.4), 0 2px 4px -2px hsl(220 13% 91% / 0.3);
+    --shadow-lg: 0 10px 15px -3px hsl(220 13% 91% / 0.4), 0 4px 6px -4px hsl(220 13% 91% / 0.2);
+    --shadow-card: 0 1px 3px 0 hsl(220 13% 91% / 0.3), 0 1px 2px -1px hsl(220 13% 91% / 0.2);
+
+    /* Sidebar */
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 220 14% 96%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 47% 18%;
+    --sidebar-accent-foreground: 220 14% 96%;
+    --sidebar-border: 222 47% 18%;
+    --sidebar-ring: 221 83% 53%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 220 14% 96%;
+
+    --card: 222 47% 9%;
+    --card-foreground: 220 14% 96%;
+
+    --popover: 222 47% 9%;
+    --popover-foreground: 220 14% 96%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 47% 15%;
+    --secondary-foreground: 220 14% 96%;
+
+    --muted: 222 47% 15%;
+    --muted-foreground: 220 9% 55%;
+
+    --accent: 222 47% 18%;
+    --accent-foreground: 217 91% 70%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 47% 18%;
+    --input: 222 47% 18%;
+    --ring: 217 91% 60%;
+
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 220 14% 96%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 47% 13%;
+    --sidebar-accent-foreground: 220 14% 96%;
+    --sidebar-border: 222 47% 13%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Status badges */
+  .badge-pending {
+    @apply bg-[hsl(var(--status-pending)/0.15)] text-[hsl(var(--status-pending-foreground))] border border-[hsl(var(--status-pending)/0.3)];
+  }
+  
+  .badge-approved {
+    @apply bg-[hsl(var(--status-approved))] text-[hsl(var(--status-approved-foreground))];
+  }
+  
+  .badge-rejected {
+    @apply bg-[hsl(var(--status-rejected))] text-[hsl(var(--status-rejected-foreground))];
+  }
+  
+  .badge-review {
+    @apply bg-[hsl(var(--status-review))] text-[hsl(var(--status-review-foreground))];
+  }
+  
+  .badge-cancelled {
+    @apply bg-[hsl(var(--status-cancelled))] text-[hsl(var(--status-cancelled-foreground))];
+  }
+
+  /* Role badges */
+  .badge-admin {
+    @apply bg-[hsl(var(--role-admin)/0.15)] text-[hsl(var(--role-admin))] border border-[hsl(var(--role-admin)/0.3)];
+  }
+  
+  .badge-manager {
+    @apply bg-[hsl(var(--role-manager)/0.15)] text-[hsl(var(--role-manager))] border border-[hsl(var(--role-manager)/0.3)];
+  }
+  
+  .badge-user {
+    @apply bg-[hsl(var(--role-user)/0.15)] text-[hsl(var(--role-user))] border border-[hsl(var(--role-user)/0.3)];
+  }
+
+  /* Type badges */
+  .badge-leave {
+    @apply bg-[hsl(var(--type-leave)/0.15)] text-[hsl(var(--type-leave))] border border-[hsl(var(--type-leave)/0.3)];
+  }
+  
+  .badge-expense {
+    @apply bg-[hsl(var(--type-expense)/0.15)] text-[hsl(var(--type-expense-foreground))] border border-[hsl(var(--type-expense)/0.3)];
+  }
+  
+  .badge-discount {
+    @apply bg-[hsl(var(--type-discount)/0.15)] text-[hsl(var(--type-discount))] border border-[hsl(var(--type-discount)/0.3)];
+  }
+
+  /* Card with gradient */
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  /* Primary gradient button */
+  .btn-gradient {
+    background: var(--gradient-primary);
+    @apply text-white shadow-md hover:shadow-lg transition-all duration-200;
+  }
+
+  /* Stat card styles */
+  .stat-card {
+    @apply relative overflow-hidden rounded-xl border bg-card p-6;
+    box-shadow: var(--shadow-card);
+  }
+
+  .stat-card::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-1;
+    background: var(--gradient-primary);
+  }
+
+  /* Table styles */
+  .table-header {
+    @apply bg-muted/50 text-muted-foreground text-sm font-medium;
+  }
+
+  /* Input focus styles */
+  .input-focus {
+    @apply focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200;
+  }
+
+  /* Page container */
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+  }
+
+  /* Section header */
+  .section-header {
+    @apply flex items-center justify-between mb-6;
+  }
+
+  /* Empty state */
+  .empty-state {
+    @apply flex flex-col items-center justify-center py-12 text-center text-muted-foreground;
+  }
+}
