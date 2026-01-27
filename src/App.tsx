@@ -1,13 +1,14 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { TooltipProvider } from './components/ui/tooltip'
 import { Toaster } from './components/ui/sonner'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, replace, Route, Routes } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
 import Dashboard from './pages/Dashboard'
 import { ProtectedRoute } from './components/ProtectedRoute'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
+import NotFound from './pages/NotFound'
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -45,7 +46,10 @@ const App = () => (
 								</ProtectedRoute>
 							}
 						/>
-						
+
+						<Route path='/' element={<Navigate to="/dashboard" replace />} />
+
+						<Route path='/' element={<NotFound />} />
 					</Routes>
 				</AuthProvider>
 			</BrowserRouter>
