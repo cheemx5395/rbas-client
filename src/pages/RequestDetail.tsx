@@ -10,7 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useDeleteRequest, useFlagRequest, useRequest, useRequestAction } from "@/hooks/useRequests";
 import type { DiscountRequestDetails, ExpenseRequestDetails, LeaveRequestDetails } from "@/types";
 import { format } from "date-fns";
-import { AlertCircle, ArrowLeft, Calendar, CheckCircle, DollarSign, Flag, FlagOff, Loader2, Percent, Trash2, XCircle } from "lucide-react";
+import { AlertCircle, ArrowLeft, Calendar, CheckCircle, Flag, FlagOff, IndianRupee, Loader2, Percent, Trash2, User, XCircle } from "lucide-react";
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -26,7 +26,6 @@ const RequestDetail: React.FC = () => {
     const [actionReason, setActionReason] = useState('')
 
     const isOwner = request?.user === user?.id
-    const canEdit = isOwner && request?.status === 'PENDING'
     const canDelete = isOwner && request?.status === 'PENDING'
     const isManagerOrAdmin = user?.role === 'ADMIN' || user?.role === 'MANAGER'
 
@@ -120,7 +119,7 @@ const RequestDetail: React.FC = () => {
                         <div className="grid gap-4 sm:grid-cols-2">
                             <div>
                                 <p className="text-sm text-muted-foreground">Amount</p>
-                                <p className="text-2xl font-bold">${details.amount.toLocaleString()}</p>
+                                <p className="text-2xl font-bold">₹{details.amount.toLocaleString()}</p>
                             </div>
                             <div>
                                 <p className="text-sm text-muted-foreground">Category</p>
@@ -169,7 +168,7 @@ const RequestDetail: React.FC = () => {
             case 'LEAVE':
                 return <Calendar className="h-6 w-6" />;
             case 'EXPENSE':
-                return <DollarSign className="h-6 w-6" />;
+                return <IndianRupee className="h-6 w-6" />;
             case 'DISCOUNT':
                 return <Percent className="h-6 w-6" />;
             default:
@@ -284,7 +283,23 @@ const RequestDetail: React.FC = () => {
                                 Created on {format(new Date(request.created_at), 'MMMM d, yyyy')}
                             </CardDescription>
                         </CardHeader>
-                        <CardContent>{renderDetails()}</CardContent>
+                        <CardContent className="space-y-6">
+                            {/* User Information */}
+                            <div className="rounded-lg border bg-muted/50 p-4">
+                                <div className="flex items-center gap-3">
+                                    <div className="rounded-full bg-primary/10 p-2">
+                                        <User className="h-4 w-4 text-primary" />
+                                    </div>
+                                    <div>
+                                        <p className="text-sm text-muted-foreground">Requested By</p>
+                                        <p className="font-medium">{request.username || `User #${request.user}`}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Request Type Specific Details */}
+                            {renderDetails()}
+                        </CardContent>
                     </Card>
 
                     {/* Status & Actions */}

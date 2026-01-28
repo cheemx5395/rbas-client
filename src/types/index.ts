@@ -76,6 +76,7 @@ export interface DiscountRequestDetails {
 export interface ApprovalRequest {
   id: number;
   user: number;
+  username: string;
   request_type: RequestType;
   status: RequestStatus;
   decision_reason?: string;

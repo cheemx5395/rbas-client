@@ -17,7 +17,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
-import { Loader2, ArrowLeft, Calendar, DollarSign, Percent } from 'lucide-react';
+import { Loader2, ArrowLeft, Calendar, Percent, IndianRupee } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import type { RequestType } from '@/types';
 
@@ -157,7 +157,7 @@ const NewRequest: React.FC = () => {
                                             </SelectItem>
                                             <SelectItem value="EXPENSE">
                                                 <div className="flex items-center gap-2">
-                                                    <DollarSign className="h-4 w-4" />
+                                                    <IndianRupee className="h-4 w-4" />
                                                     Expense Request
                                                 </div>
                                             </SelectItem>

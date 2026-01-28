@@ -9,14 +9,14 @@ interface RequestFilters {
 export const requestApi = {
     // List Requests
     list: async (filters?:RequestFilters): Promise<ApprovalRequest[]> => {
-        const params = new URLSearchParams()
+        const params: Record<string, any> = {}
         if (filters?.mine !== undefined) {
-            params.append('mine', String(filters.mine))
+            params.mine = filters.mine
         }
         if (filters?.status) {
-            params.append('status', filters.status)
+            params.status = filters.status
         }
-        const response = await apiClient.get(`/api/approval/requests/?${params.toString()}/`)
+        const response = await apiClient.get('/api/approval/requests/', {params})
         return response.data
     },
 

@@ -30,6 +30,15 @@
 
   --color-popover: hsl(var(--popover));
   --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-status-approved: hsl(var(--status-approved));
+  --color-status-approved-foreground: hsl(var(--status-approved-foreground));
+  
+  --color-status-rejected: hsl(var(--status-rejected));
+  --color-status-rejected-foreground: hsl(var(--status-rejected-foreground));
+
+  --color-status-review: hsl(var(--status-review));
+  --color-status-review-foreground: hsl(var(--status-review-foreground));
 }
 
 
