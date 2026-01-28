@@ -12,6 +12,7 @@ import NotFound from './pages/NotFound'
 import Requests from './pages/Requests'
 import RequestDetail from './pages/RequestDetail'
 import NewRequest from './pages/NewRequest'
+import AdminRequests from './pages/AdminRequests'
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -73,6 +74,15 @@ const App = () => (
 							element={
 								<ProtectedRoute>
 									<NewRequest />
+								</ProtectedRoute>
+							}
+						/>
+
+						<Route
+							path="/admin/requests"
+							element={
+								<ProtectedRoute allowedRoles={['ADMIN', 'MANAGER', 'USER']}>
+									<AdminRequests />
 								</ProtectedRoute>
 							}
 						/>
