@@ -13,6 +13,8 @@ import Requests from './pages/Requests'
 import RequestDetail from './pages/RequestDetail'
 import NewRequest from './pages/NewRequest'
 import AdminRequests from './pages/AdminRequests'
+import AdminPolicies from './pages/AdminPolicies'
+import AdminAnalytics from './pages/AdminAnalytics'
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -86,6 +88,25 @@ const App = () => (
 								</ProtectedRoute>
 							}
 						/>
+
+						<Route
+							path="/admin/policies"
+							element={
+								<ProtectedRoute allowedRoles={['ADMIN']}>
+									<AdminPolicies />
+								</ProtectedRoute>
+							}
+						/>
+
+						<Route
+							path="/admin/analytics"
+							element={
+								<ProtectedRoute allowedRoles={['ADMIN']}>
+									<AdminAnalytics />
+								</ProtectedRoute>
+							}
+						/>
+
 
 						<Route path='/' element={<Navigate to="/dashboard" replace />} />
 						<Route path='*' element={<NotFound />} />
