@@ -10,6 +10,7 @@ import Login from './pages/Login'
 import Profile from './pages/Profile'
 import NotFound from './pages/NotFound'
 import Requests from './pages/Requests'
+import RequestDetail from './pages/RequestDetail'
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -53,6 +54,15 @@ const App = () => (
 							element={
 								<ProtectedRoute>
 									<Requests />
+								</ProtectedRoute>
+							}
+						/>
+
+						<Route
+							path="/requests/:id"
+							element={
+								<ProtectedRoute>
+									<RequestDetail />
 								</ProtectedRoute>
 							}
 						/>
