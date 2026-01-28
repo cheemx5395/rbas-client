@@ -1,6 +1,7 @@
 import { authApi } from "@/api/auth";
 import type { User } from "@/types";
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 
 interface AuthContextType {
     user: User | null
@@ -21,6 +22,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [user, setUser] = useState<User | null>(null)
     const [isLoading, setIsLoading] = useState(true)
 
+    const queryClient = useQueryClient()
     const refreshUser = useCallback(async () => {
         const token = localStorage.getItem('access_token')
         if (!token) {
@@ -43,7 +45,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
     useEffect(() => {
         refreshUser()
-    },[refreshUser])
+    }, [refreshUser])
 
     const login = useCallback((accessToken: string, refreshToken: string, userData: User) => {
         localStorage.setItem('access_token', accessToken)
@@ -56,18 +58,19 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         try {
             if (refreshToken) {
                 await authApi.logout(refreshToken)
-            } 
+            }
         } catch (error) {
             console.error('Logout error:', error)
         } finally {
             localStorage.removeItem('access_token')
             localStorage.removeItem('refresh_token')
+            queryClient.removeQueries()
             setUser(null)
         }
-    }, [])
+    }, [queryClient])
 
-    const value : AuthContextType = {
-        user, 
+    const value: AuthContextType = {
+        user,
         isLoading,
         isAuthenticated: !!user,
         login,

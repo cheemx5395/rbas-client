@@ -317,7 +317,7 @@ const RequestDetail: React.FC = () => {
                         )}
 
                         {/* Admin/Manager Actions */}
-                        {isManagerOrAdmin && request.status === 'PENDING' && (
+                        {isManagerOrAdmin && (request.status === 'PENDING' || request.status === 'NEEDS_REVIEW') && (
                             <Card>
                                 <CardHeader>
                                     <CardTitle className="text-lg">Take Action</CardTitle>
