@@ -36,6 +36,7 @@ import {
 import { Loader2, Plus, Pencil, Trash2, Shield } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import type { Policy, RequestType } from '@/types';
+import { formatToTitleCase } from '@/lib/utils';
 
 const initialFormState: Omit<Policy, 'id'> = {
     request_type: 'LEAVE',
@@ -334,7 +335,7 @@ const AdminPolicies: React.FC = () => {
                                             </AlertDialog>
                                         </div>
                                     </div>
-                                    <CardTitle className="text-lg">{policy.policy_key}</CardTitle>
+                                    <CardTitle className="text-lg">{formatToTitleCase(policy.policy_key)}</CardTitle>
                                     <CardDescription>Value: {policy.value}</CardDescription>
                                 </CardHeader>
                                 <CardContent>
