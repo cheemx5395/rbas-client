@@ -17,7 +17,7 @@ const registerSchema = z.object({
   username: z.string().min(1),
   password: z.string().min(8),
   confirmPassword: z.string().min(8),
-  email: z.email().optional(),
+  email: z.email(),
   role: z.enum(["ADMIN", "MANAGER", "USER"]),
   grade: z.enum(["GRADE1", "GRADE2", "GRADE3", "NA"]),
 })
